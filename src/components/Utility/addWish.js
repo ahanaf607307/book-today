@@ -9,6 +9,9 @@ else{
     return []
 }
 }
+const setWishList = (ids) => {
+    localStorage.setItem('wish-list' , JSON.stringify(ids))
+}
 
 const addWishList = (id) => {
     const wishList = getWishList()
@@ -16,7 +19,7 @@ const addWishList = (id) => {
 
         toast.error('Already Add wish List', {
             position: "top-center",
-            autoClose: 2000,
+            autoClose: 1000,
             hideProgressBar: false,
             closeOnClick: true,
             pauseOnHover: true,
@@ -32,7 +35,7 @@ const addWishList = (id) => {
         localStorage.setItem('wish-list' , wishListStr)
         toast.success('Mark As Read Successfully', {
             position: "top-center",
-            autoClose: 2000,
+            autoClose: 1000,
             hideProgressBar: false,
             closeOnClick: true,
             pauseOnHover: true,
@@ -43,4 +46,4 @@ const addWishList = (id) => {
     }
 }
 
-export {addWishList , getWishList}
+export {addWishList , getWishList , setWishList}

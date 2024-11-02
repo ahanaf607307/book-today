@@ -16,7 +16,7 @@ const addToStoredList = (id) => {
     if(storedList.includes(id)){
         toast.error('Already Add in LocalStorage', {
             position: "top-center",
-            autoClose: 2000,
+            autoClose: 1000,
             hideProgressBar: false,
             closeOnClick: true,
             pauseOnHover: true,
@@ -30,9 +30,11 @@ const addToStoredList = (id) => {
         storedList.push(id)
         const storedListStr = JSON.stringify(storedList)
         localStorage.setItem('read-list' , storedListStr)
+
+
         toast.success('Mark As Read Successfully', {
             position: "top-center",
-            autoClose: 2000,
+            autoClose: 1000,
             hideProgressBar: false,
             closeOnClick: true,
             pauseOnHover: true,
