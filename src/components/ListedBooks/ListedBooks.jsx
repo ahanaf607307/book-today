@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link, useLoaderData } from "react-router-dom";
-import { getStoredList } from "../Utility/addToDb";
+import { getStoredList, setReadBook } from "../Utility/addToDb";
 import Book from "../Books/Book";
 import { getWishList, setWishList } from "../Utility/addWish";
 import { FaStar } from "react-icons/fa";
@@ -34,8 +34,15 @@ function ListedBooks() {
  
   const handleDeleteWish = bookId => {
     const Deletewishes = wishes.filter(book => book.bookId !== bookId);
+    
     setWishes(Deletewishes);
     setWishList(Deletewishes.map(book => book.bookId))
+  }
+  const handleDeleteRead = bookId => {
+    const DeleteRead = books.filter(book => book.bookId !== bookId);
+    setBooks(DeleteRead)
+    setReadBook(DeleteRead.map(book => book.bookId))
+   
   }
     const handleSort = sortType => {
         setSort(sortType);
@@ -62,7 +69,7 @@ function ListedBooks() {
   
   return (
     <div>
-      <div className="w-full text-center my-10">
+      <div className="w-full text-center mt-20 my-10">
         <details className="dropdown">
           <summary className="btn m-1">
             {sort ? `Sort by : ${sort}` : "Sort By"}{" "}
@@ -93,7 +100,63 @@ function ListedBooks() {
             Books Added : {books.length}
           </h1>
           <div className="grid md:grid-cols-2 gap-4">
-            {books.map(book => <Book key={book.bookId} book={book} />)}
+            {/* {books.map(book => <Book key={book.bookId} book={book} />)} */}
+            {books.map(book =>
+              <div 
+                key={book.bookId}
+                className="flex h-[520px] border card card-compact bg-base-100 shadow-xl"
+              >
+                <figure>
+                  <img src={book.image} alt="Shoes" className="h-56 " />
+                </figure>
+                <div className="card-body mt-4">
+                  <div className="flex">
+                    <h1 className="bg-gray-100 py-1 px-3 font-semibold text-cyan-500 mr-3 rounded-xl">
+                      {book.publisher}
+                    </h1>
+                    <h1 className="bg-gray-100 py-1 px-3 font-semibold text-cyan-500 mr-3 rounded-xl">
+                      {book.category}
+                    </h1>
+                  </div>
+                  <div className="flex flex-col  h-full justify-between">
+                    <div>
+                      <div className="flex justify-between items-center">
+                        <h1 className="text-xl pr-10 my-3">
+                          {book.bookName}
+                        </h1>
+                        <h1>
+                          Pages : {book.totalPages}
+                        </h1>
+                      </div>
+                      <div className="flex justify-between items-center font-semibold text-gray-600">
+                        <h1 className="text-lg">
+                          By : {book.author}
+                        </h1>
+                        <h1>
+                          {book.yearOfPublishing}
+                        </h1>
+                      </div>
+                      <div className="flex  justify-between items-center  font-semibold text-gray-500 mt-3">
+                        <h1>Rating</h1>
+                        <h1 className="flex justify-between items-center  font-semibold text-gray-500 gap-x-1">
+                          <FaStar className="text-yellow-500 " /> {book.rating}
+                        </h1>
+                      </div>
+                    </div>
+                    <div className="w-full justify-end">
+                      <Link to={`/books/${book.bookId}`}>
+                        {" "}<button className="btn mt-5 w-full text-white bg-cyan-500">
+                          See Details
+                        </button>
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+                <div>
+                <button  onClick={() => handleDeleteRead(book.bookId)} className="btn bg-white absolute -top-3 -right-3"><MdDelete className="text-2xl text-red-500"/></button>
+                </div>
+              </div>
+            )}
           </div>
         </div>
 

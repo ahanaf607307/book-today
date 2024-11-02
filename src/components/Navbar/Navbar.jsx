@@ -6,7 +6,7 @@ function Navbar() {
   return (
     <>
     
-    <div className="navbar bg-base-100 fixed top-0 mb-10 z-10">
+    <div className="navbar bg-base-100 fixed top-0  z-10">
   <div className="navbar-start flex  items-center">
     
     <Link className="btn btn-ghost font-bold text-2xl">Book_Today</Link>

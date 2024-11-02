@@ -10,6 +10,9 @@ const getStoredList = () => {
  }
 }
 
+const setReadBook = (ids) => {
+   localStorage.setItem('read-list' , JSON.stringify(ids))
+}
 
 const addToStoredList = (id) => {
     const storedList = getStoredList()
@@ -44,4 +47,4 @@ const addToStoredList = (id) => {
             });
     }
 }
-export {addToStoredList , getStoredList}
+export {addToStoredList , getStoredList , setReadBook}

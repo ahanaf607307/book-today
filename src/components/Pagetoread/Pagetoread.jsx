@@ -3,7 +3,7 @@ import { Watch } from 'react-loader-spinner'
 
 function Pagetoread() {
   return (
-    <div><div className='flex flex-col gap-5 w-full mx-auto'>
+    <div><div className='flex flex-col gap-5 w-full mx-auto mt-20'>
          <Watch
   visible={true}
   height="80"
