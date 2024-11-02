@@ -30,7 +30,7 @@ function Book({book}) {
         </div>
        </div>
         <div className='w-full justify-end'>
-       <Link to={`/books/${bookId}`}> <button className="btn mt-5 w-full text-white bg-cyan-500">Buy Now</button></Link>
+       <Link to={`/books/${bookId}`}> <button className="btn mt-5 w-full text-white bg-cyan-500">See Details</button></Link>
         </div>
     </div>
   </div>
