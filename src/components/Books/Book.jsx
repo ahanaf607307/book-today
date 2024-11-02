@@ -19,7 +19,10 @@ function Book({book}) {
     </div>
     <div className='flex flex-col  h-full justify-between'>
        <div>
+       <div className='flex justify-between items-center'>
        <h1 className='text-xl pr-10 my-3'>{bookName}</h1>
+       <h1>Pages : {totalPages}</h1>
+       </div>
         <div className='flex justify-between items-center font-semibold text-gray-600'>
         <h1 className='text-lg'>By : {author}</h1>
         <h1>{yearOfPublishing}</h1>

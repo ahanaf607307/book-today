@@ -43,13 +43,13 @@ function Navbar() {
      <li> <NavLink to='/listedBooks'>Listed Books</NavLink></li>
      <li> <NavLink to='/pageToread'>Pages to Read</NavLink></li>
      <li><button className="btn bg-cyan-500 text-white"> <Link to='/'>Sine in</Link></button></li>
-     <li><button className="btn bg-teal-500 text-emerald-800">  <Link to='/'>Sine up</Link></button></li>
+     <li><button className="btn bg-white text-cyan-500">  <Link to='/'>Sine up</Link></button></li>
       </ul>
       
     </div>
    <div className='hidden md:flex gap-x-3'>
    <button className="btn bg-cyan-500 text-white"> <Link to='/'>Sine in</Link></button>
-   <button className="btn bg-teal-500 text-emerald-800">  <Link to='/'>Sine up</Link></button>
+   <button className="btn bg-white text-cyan-500">  <Link to='/'>Sine up</Link></button>
    </div>
    
   </div>
