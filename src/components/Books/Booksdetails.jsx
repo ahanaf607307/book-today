@@ -5,6 +5,7 @@ import { addWishList } from '../Utility/addWish'
 
 
 
+
 function Booksdetails() {
     const {bookId} = useParams()
   
@@ -15,6 +16,7 @@ function Booksdetails() {
 
     const handleMarkRead = (id) => {
       addToStoredList(id)
+     
     }
     const handleWishList = (id) => {
      addWishList(id)

@@ -13,6 +13,8 @@ import Booksdetails from './components/Books/Booksdetails';
 import ListedBooks from './components/ListedBooks/ListedBooks';
 import Pagetoread from './components/Pagetoread/Pagetoread';
 
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const router = createBrowserRouter([
   {
@@ -45,6 +47,7 @@ const router = createBrowserRouter([
           const data = await response.json()
           return data
         }
+  
       },
       {
         path:'dashboard' ,
@@ -56,5 +59,17 @@ const router = createBrowserRouter([
 createRoot(document.getElementById('root')).render(
   <StrictMode>
      <RouterProvider router={router} />
+     <ToastContainer
+position="top-center"
+autoClose={1000}
+hideProgressBar={false}
+newestOnTop={false}
+closeOnClick
+rtl={false}
+pauseOnFocusLoss
+draggable
+pauseOnHover
+theme="colored"
+/>
   </StrictMode>,
 )
